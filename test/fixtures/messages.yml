@@ -1,0 +1,15 @@
+# Read about fixtures at http://api.rubyonrails.org/classes/ActiveRecord/FixtureSet.html
+
+one:
+  recipient_email: MyString
+  text: MyText
+  delay_until_time: 2015-03-31 22:37:43
+  timezone_offset: 1
+  sent: false
+
+two:
+  recipient_email: MyString
+  text: MyText
+  delay_until_time: 2015-03-31 22:37:43
+  timezone_offset: 1
+  sent: false

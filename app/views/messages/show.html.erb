@@ -1,0 +1,29 @@
+<p id="notice"><%= notice %></p>
+
+<p>
+  <strong>Recipient email:</strong>
+  <%= @message.recipient_email %>
+</p>
+
+<p>
+  <strong>Text:</strong>
+  <%= @message.text %>
+</p>
+
+<p>
+  <strong>Delay until time:</strong>
+  <%= @message.delay_until_time %>
+</p>
+
+<p>
+  <strong>Timezone offset:</strong>
+  <%= @message.timezone_offset %>
+</p>
+
+<p>
+  <strong>Sent:</strong>
+  <%= @message.sent %>
+</p>
+
+<%= link_to 'Edit', edit_message_path(@message) %> |
+<%= link_to 'Back', messages_path %>
