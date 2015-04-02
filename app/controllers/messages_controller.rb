@@ -28,6 +28,8 @@ class MessagesController < ApplicationController
 
     respond_to do |format|
       if @message.save
+        DelayMessageWorker.perform_at(@message.delay_until_time + @message.timezone_offset.hours, @message.id)
+
         format.html { redirect_to @message, notice: 'Message was successfully created.' }
         format.json { render :show, status: :created, location: @message }
       else
