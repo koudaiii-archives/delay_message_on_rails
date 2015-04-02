@@ -1,7 +1,15 @@
 class DelayMessageWorker
   include Sidekiq::Worker
 
-  def perform(*args)
-    # Do something
+  def perform(message_id)
+    # Get the message object
+    message = Massage.find(message_id)
+
+    # Send an email
+    MessageMailer.delay.default(message.recipient_email, message.text)
+
+    # Change the status of the Message object to 'sent'
+    message.sent = true
+    message.save
   end
 end
