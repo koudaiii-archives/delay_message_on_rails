@@ -5,9 +5,9 @@ class MessageMailer < ApplicationMailer
   #
   #   en.message_mailer.default.subject
   #
-  def default
-    @greeting = "Hi"
+  def default(recipient_email, content)
+    @content = content
 
-    mail to: "to@example.org"
+    mail to: recipient_email
   end
 end
