@@ -6,7 +6,7 @@ web:
     - db
     - redis
   ports:
-    - "3000"
+    - "3000:3000"
   command: bundle exec rails server -b 0.0.0.0
 worker:
   build: .
