@@ -1,3 +1,4 @@
+require 'sidekiq/web'
 Rails.application.routes.draw do
   resources :messages
   # The priority is based upon order of creation: first created -> highest priority.
@@ -54,4 +55,8 @@ Rails.application.routes.draw do
   #     # (app/controllers/admin/products_controller.rb)
   #     resources :products
   #   end
+  mount Sidekiq::Web => '/sidekiq'
 end
+
+
+

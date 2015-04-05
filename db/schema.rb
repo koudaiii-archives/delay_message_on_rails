@@ -15,15 +15,12 @@ ActiveRecord::Schema.define(version: 20150331133743) do
 
   create_table "messages", force: :cascade do |t|
     t.string   "recipient_email"
-    t.text     ""
     t.text     "text"
     t.datetime "delay_until_time"
-    t.datetime "0000-00-00 00:00:00"
     t.integer  "timezone_offset"
-    t.integer  "0"
-    t.boolean  "sent",                default: false
-    t.datetime "created_at",                          null: false
-    t.datetime "updated_at",                          null: false
+    t.boolean  "sent",             default: false
+    t.datetime "created_at",                       null: false
+    t.datetime "updated_at",                       null: false
   end
 
 end

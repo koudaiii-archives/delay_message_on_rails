@@ -1,5 +1,8 @@
 source 'https://rubygems.org'
 
+# if you require 'sinatra' you get the DSL extended to Object
+gem 'sinatra', :require => nil
+# Use .env
 gem 'dotenv-rails'
 # Bundle edge Rails instead: gem 'rails', github: 'rails/rails'
 gem 'rails', '4.2.1'
