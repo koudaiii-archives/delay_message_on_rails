@@ -3,7 +3,7 @@ class DelayMessageWorker
 
   def perform(message_id)
     # Get the message object
-    message = Massage.find(message_id)
+    message = Message.find(message_id)
 
     # Send an email
     MessageMailer.delay.default(message.recipient_email, message.text)
