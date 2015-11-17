@@ -9,4 +9,3 @@ RUN bundle install
 # Production mode
 #RUN echo "SECRET_KEY_BASE='`bundle exec rake secret`'" >> .env
 RUN bundle exec rake assets:precompile
-RUN bundle exec rake db:setup
