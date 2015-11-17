@@ -7,6 +7,9 @@ web:
     - redis
   ports:
     - "3000:3000"
+  environment:
+    - "RAILS_ENV=production"
+    - "SECRET_KEY_BASE=b4dcdb0cf93ac1871417d1f8ea8eb39a6156f4bb1fab5e81600c08eb798d3e369ef4df3d973e79beaaad1fce5fad8e9d001970226119409b776b87fe8fd40c13"
   command: bundle exec rails server -b 0.0.0.0
 worker:
   build: .
@@ -15,6 +18,9 @@ worker:
   links:
     - db
     - redis
+  environment:
+    - "RAILS_ENV=production"
+    - "SECRET_KEY_BASE=b4dcdb0cf93ac1871417d1f8ea8eb39a6156f4bb1fab5e81600c08eb798d3e369ef4df3d973e79beaaad1fce5fad8e9d001970226119409b776b87fe8fd40c13"
   command: bundle exec sidekiq
 db:
   image: postgres
