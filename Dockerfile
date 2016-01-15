@@ -1,11 +1,15 @@
 FROM ruby
 ENV RAILS_ENV production
-RUN apt-get update -qq && apt-get install -y build-essential libpq-dev
-RUN mkdir /myapp
-WORKDIR /myapp
-ADD . /myapp
-RUN bundle install
+ENV SECRET_KEY_BASE $RUBY_DOWNLOAD_SHA256
+RUN apt-get update -qq && \
+    apt-get install -y build-essential libpq-dev && \
+    rm -rf /var/lib/apt/lists/*
 
-# Production mode
-#RUN echo "SECRET_KEY_BASE='`bundle exec rake secret`'" >> .env
+WORKDIR /myapp
+COPY . /myapp
+
+RUN bundle install --without test development --path vendor/bundle -j4
 RUN bundle exec rake assets:precompile
+
+EXPOSE 3000
+CMD ["bundle", "exec", "rails", "server", "-b", "0.0.0.0"]
