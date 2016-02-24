@@ -15,7 +15,6 @@ worker:
   links:
     - db
     - redis
-  environment:
   command: bundle exec sidekiq
 db:
   image: postgres
