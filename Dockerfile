@@ -1,4 +1,4 @@
-FROM ruby
+FROM rails
 ENV RAILS_ENV production
 ENV SECRET_KEY_BASE $RUBY_DOWNLOAD_SHA256
 RUN apt-get update -qq && \
