@@ -16,13 +16,3 @@ db:
   image: postgres
 redis:
   image: redis
-cache:
-  image: koudaiii/varnish-sample
-  environment:
-    - "VARNISH_BACKEND_PORT=3000"
-    - "VARNISH_PORT=8080"
-    - "VARNISH_BACKEND_IP=web"
-  ports:
-    - "8080:80"
-  links:
-    - web
