@@ -1,17 +1,13 @@
 web:
   build: .
-  volumes:
-    - .:/myapp
   links:
     - db
     - redis
   ports:
-    - "3000:3000"
-  command: sh start.sh
+    - "8080"
+  command: sh script/server
 worker:
   build: .
-  volumes:
-    - .:/myapp
   links:
     - db
     - redis
