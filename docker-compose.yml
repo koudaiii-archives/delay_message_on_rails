@@ -14,5 +14,11 @@ worker:
       - redis
 db:
   image: postgres
+  environment:
+      - "affinity:com.docker.compose.service==web"
+      - "affinity:com.docker.compose.service==worker"
 redis:
   image: redis
+  environment:
+      - "affinity:com.docker.compose.service==web"
+      - "affinity:com.docker.compose.service==worker"
