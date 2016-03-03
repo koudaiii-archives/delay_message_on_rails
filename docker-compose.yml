@@ -3,10 +3,20 @@ web:
   ports:
     - "8080"
   command: sh script/server
+  links:
+      - db
+      - redis
 worker:
   build: .
   command: bundle exec sidekiq
+  links:
+      - db
+      - redis
 db:
   image: postgres
+  ports:
+     - "5432"
 redis:
   image: redis
+  ports:
+    - "6379"
