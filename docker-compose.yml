@@ -14,9 +14,5 @@ worker:
       - redis
 db:
   image: postgres
-  ports:
-     - "5432"
 redis:
   image: redis
-  ports:
-    - "6379"
