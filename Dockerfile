@@ -13,4 +13,4 @@ RUN bundle install --without test development --path vendor/bundle -j4
 RUN bundle exec rake assets:precompile
 
 EXPOSE 8080
-CMD ["script/server"]
+ENTRYPOINT ["/app/script/entrypoint.sh"]
