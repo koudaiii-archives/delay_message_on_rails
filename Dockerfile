@@ -8,6 +8,7 @@ RUN apt-get update -qq && \
 WORKDIR /myapp
 COPY . /myapp
 
+RUN gem install spring -v 1.6.4
 RUN bundle install --without test development --path vendor/bundle -j4
 RUN bundle exec rake assets:precompile
 
