@@ -39,6 +39,8 @@ gem 'nokogiri', '1.6.8.rc3'
 
 gem 'sidekiq'
 gem 'hiredis' # for better redis performance
+gem 'redis-objects'
+gem 'redis-namespace'
 
 group :development, :test do
   # Call 'byebug' anywhere in the code to stop execution and get a debugger console
